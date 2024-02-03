@@ -1,0 +1,37 @@
+
+<section  *ngIf="done<20" class="bg-body-secondary ">
+    <div class="container py-5">
+        
+    <div *ngIf="done<20" class="px-3">
+        <p class="fw-bold">page number [{{done+1}}/20]</p>
+    </div>
+        <div *ngIf="done<20" class="row d-flex justify-content-center head col-md-8 m-auto rounded-5">
+            <div class="col-md-6 p-4 ">
+                <p>{{currHead![2]}}</p>
+                <p>{{currHead![3]}}</p>
+            </div>
+            <div dir="rtl" class="col-md-6 p-4">
+               <p>{{currHead![0]}}</p>
+               <p>{{currHead![1]}}</p>
+            </div>
+           
+        </div>
+        
+        <app-exam-form *ngFor="let arr of data" [formNumber]="data.indexOf(arr)" [quitions]="arr" (formTotalResult)="formResult($event)"></app-exam-form>
+        <app-exam-form2 *ngFor="let arr of Data2" [formNumber]="(Data2.indexOf(arr)+18)" [quitions]="arr" (formTotalResult)="form2Result($event)"></app-exam-form2>
+
+    </div>
+</section>
+<section *ngIf="done==20">
+    <div class="d-flex justify-content-center">
+        <div  class="col-md-6 p-5 bg-body-secondary mt-5 rounded-4 ">
+            <div >
+                <p dir="rtl">تم الانتهاء من جميع الاسالة ;</p>
+                <p>All questions have been completed</p>
+            </div>
+            <div class="text-center">
+                <button (click)="sendResult()" class="btn btn-primary">Result / الانتقال الي النتيجة</button>
+            </div>
+        </div>
+      </div>
+</section>

@@ -1,0 +1,95 @@
+<section>
+
+   <div *ngIf="!auth" class="container vh-100 d-flex align-items-center">
+    <form [formGroup]="adminForm" class="w-50 bg-body-secondary p-5 rounded-5 m-auto">
+        <span *ngIf="eror" class="text-danger"> your email or password is not valid pleasse try agine .</span>
+        <input type="text" formControlName="email" class="form-control mb-3"  placeholder="your admin email...">
+        <input type="password"  formControlName="pass"  class="form-control mb-3" placeholder="your password">
+
+        <div class="text-center">
+            <button (click)="login()" class="btn btn-primary">login</button>
+        </div>
+
+    </form>
+   </div>
+
+    <div *ngIf="auth" class="container py-5">
+        <div dir="rtl" class=" m-auto mb-5">
+            <h4 class="mb-4">بيانات الطلاب اللذين اتمو الاختبار</h4>
+            <input (input)="stuSearch($event)" type="text" class="form-control" placeholder="ادخل اسم الطالب ...">
+        </div>
+        <div dir="rtl">
+            <div class="p-4">
+                <div *ngFor="let s of serchStudentsData" class=" bg-body-tertiary p-4 rounded-5  mb-4">
+                    <div class="row mb-4">
+                        <div class="col-lg-5">
+                            <table>
+                                <tr>
+                                    <td>الاسم :</td>
+                                    <td>{{s.name}}</td>
+                                </tr>
+                                <tr>
+                                    <td>العمر :</td>
+                                    <td>{{s.age}}</td>
+                                </tr>
+                                <tr>
+                                    <td>النوع :</td>
+                                    <td>{{s.gender}}</td>
+                                </tr>
+                                <tr>
+                                    <td>البريد الالكتروني :</td>
+                                    <td>{{s.email}}</td>
+                                </tr>
+                                <tr>
+                                    <td>الجوال :</td>
+                                    <td>{{s.phone}}</td>
+                                </tr>
+                                
+                            </table>
+                        </div>
+                        <div class="col-lg-4">
+                            <table>
+                                <tr>
+                                    <td>المدرسة :</td>
+                                    <td>{{s.school}}</td>
+                                </tr>
+                                <tr>
+                                    <td>الفرع :</td>
+                                    <td>{{s.location}}</td>
+                                </tr>
+                                <tr>
+                                    <td>الصف :</td>
+                                    <td>{{s.grade}}</td>
+                                </tr>  
+                            </table>
+                        </div>
+                        <div class="col-lg-3">
+                            <table>
+                                <tr>
+                                    <td>النتيجة:</td>
+                                    <td>the result</td>
+                                </tr>
+                                <tr>
+                                    <td>الاعلي:</td>
+                                    <td>{{s.result.highest}}</td>
+                                </tr>
+                                <tr>
+                                    <td>الثاني :</td>
+                                    <td>{{s.result.second}}</td>
+                                </tr>  
+                                <tr>
+                                    <td>الثالث:</td>
+                                    <td>{{s.result.third}}</td>
+                                </tr>  
+                            </table>
+                        </div>
+                    </div>
+                  <div class="text-center">
+                    <button (click)="deletStudent(s.id)" class="btn btn-danger">مسح بيانات الطالب</button>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

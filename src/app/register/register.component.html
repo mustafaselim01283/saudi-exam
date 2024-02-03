@@ -1,0 +1,122 @@
+
+<section>
+    <div dir="rtl" class="container py-5 d-flex align-items-center">
+        <div>
+          <form class="row g-3 w-75 m-auto rounded-5 px-4 py-3 z-3 " [formGroup]="registerForm"  (submit)="handleSubmit($event)">
+            <h6  class="mb-3">فضلاً قم بتعبئة الاستمارة التالية للانتقال الي الاختبار .</h6>
+            <h6 dir="ltr" class="mb-3">Please fill out the following form to proceed to the test.</h6>
+            <div class="col-12">
+                <div class="d-flex justify-content-between">
+                    <label for="name">الأسم :</label>
+                    <label dir="ltr" for="name">Name :</label>
+                </div>
+              <input id="name" type="text" class="form-control my-1" formControlName="name" placeholder="ادخل اسمك ثلاثي ..." />
+              <span  *ngIf="registerForm.controls.name.touched && registerForm.controls.name.errors?.['required']" class="text-danger">
+            رجاء ادخال اسمك ثلاثى
+                </span>
+            </div>
+            <div class="col-12 ">
+                <div class="d-flex justify-content-between">
+                    <label for="email">البريد الألكتروني :</label>
+                    <label dir="ltr" for="email">Email :</label>
+                </div>
+              <input id="email" type="email" class="form-control my-1" formControlName="email" placeholder="البريد الالكتروني" />
+              <span  *ngIf="registerForm.controls.email.touched && registerForm.controls.email.errors" class="text-danger">
+                رجاء ادخال البريد الالكتروني
+                </span>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="d-flex justify-content-between">
+                    <label for="age">العمر :</label>
+                    <label dir="ltr" for="age">Age :</label>
+                </div>
+              <input id="age" type="number" class="form-control my-1" formControlName="age" placeholder=" العمر"/>
+              <span  *ngIf="registerForm.controls.age.touched && registerForm.controls.age.errors" class="text-danger">
+                  رجاء ادخال عمرك
+                </span>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="d-flex justify-content-between">
+                    <label for="phone">رقم الجوال :</label>
+                    <label dir="ltr" for="phone">Mobile No :</label>
+                </div>
+              <input id="phone" type="number" class="form-control my-1" formControlName="phone" placeholder="رقم الجوال"/>
+              <span  *ngIf="registerForm.controls.phone.touched && registerForm.controls.phone.errors" class="text-danger">
+                  رجاء ادخال رقم الجوال الخاص بك 
+                </span>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="d-flex justify-content-between">
+                    <label for="gender">النوع :</label>
+                    <label dir="ltr" for="gender">Gender :</label>
+                </div>
+                <select id="gender" name="gender" id="gender" formControlName="gender" class="form-select">
+                  <option value="ذكر/male">ذكر/male</option>
+                  <option value="أنثي/female">أنثي/female</option>
+                </select>
+                <span  *ngIf="registerForm.controls.gender.touched && registerForm.controls.gender.errors?.['required']" class="text-danger">
+            رجاء اختيار نوعك
+                  </span>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="d-flex justify-content-between">
+                    <label for="grade">الصف :</label>
+                    <label dir="ltr" for="grade">Grade :</label>
+                </div>
+                <select id="grade" name="grade" id="grade" formControlName="grade" class="form-select">
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+                <span  *ngIf="registerForm.controls.grade.touched && registerForm.controls.grade.errors?.['required']" class="text-danger">
+                   رجاء اختيار صفك الدراسي
+                  </span>
+              </div>
+            <div class="col-12 col-md-6">
+                <div class="d-flex justify-content-between">
+                    <label for="loc">الفرع :</label>
+                    <label dir="ltr" for="loc">Branch :</label>
+                </div>
+              <select id="loc" name="location" id="location" formControlName="location" class="form-select">
+                <option value="جدة/jeddah">جدة/jeddah</option>
+                <option value="الرياض/riyadah">الرياض/riyadah</option>
+                <option value="المدينة/medina">المدينة/medina</option>
+                <option value="الخبر/khobar">الخبر/khobar</option>
+                <option value="الدمام/dammam">الدمام/dammam</option>
+              </select>
+              <span  *ngIf="registerForm.controls.location.touched && registerForm.controls.location.errors?.['required']" class="text-danger">
+                رجاء اختيار فرعك
+                </span>
+            </div>
+           
+            <div class="col-12 col-md-6">
+                <div class="d-flex justify-content-between">
+                    <label for="school">المدرسة :</label>
+                    <label dir="ltr" for="school">School :</label>
+                </div>
+                <select id="school" name="school" id="school" formControlName="school" class="form-select">
+                    <option value="الروابي الخضراء/green hills">الروابي الخضراء/green hills</option>
+                    <option value="الفيصلية الأسلامية/Al-faisaliah islamic">الفيصلية الأسلامية/Al-faisaliah islamic</option>
+                    <option value="المنارات/manarat">المنارات/manarat</option>
+                    <option value="نور الأسلام/noor al-islam">نور الأسلام/noor al-islam</option>
+                   
+                  </select>
+              <span  *ngIf="registerForm.controls.school.touched && registerForm.controls.school.errors?.['required']" class="text-danger">
+                رجاء اختيار اسم مدرستك 
+                </span>
+            </div>
+
+             
+
+            <div class="col-12 d-flex justify-content-center">
+              <button (click)="submitUserData()" type="submit" class="btn text-white btn-lg border-0 p-2 px-4 d-flex btn-primary " [disabled]="registerForm.invalid || done">
+                 <p class="mb-0">تسجيل</p>
+                 <div *ngIf="done" class="spinner-border me-2" role="status">
+                 </div>
+                 </button>
+            </div>
+          </form>
+        </div>
+        
+    </div>
+</section>
